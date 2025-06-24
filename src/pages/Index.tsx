@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 import { ShoppingCart, User, Star, Shield, RotateCcw, Truck, CheckCircle, Zap, Droplets, Leaf } from 'lucide-react';
 import ScarcityNotifications from '@/components/ScarcityNotifications';
 import Reviews from '@/components/Reviews';
+import WhyChooseUs from '@/components/WhyChooseUs';
 
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
@@ -235,6 +236,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Why Choose Us Section */}
+      <WhyChooseUs />
 
       {/* Accordion Section */}
       <section className="container mx-auto px-4 py-12">
