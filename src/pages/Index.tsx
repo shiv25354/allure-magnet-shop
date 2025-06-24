@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -6,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { toast } from 'sonner';
 import { ShoppingCart, User, Star, Shield, RotateCcw, Truck, CheckCircle, Zap, Droplets, Leaf } from 'lucide-react';
+import ScarcityNotifications from '@/components/ScarcityNotifications';
 
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
@@ -36,6 +36,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50">
+      {/* Scarcity Notifications */}
+      <ScarcityNotifications />
+
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b shadow-sm">
         {/* Urgency Bar */}
