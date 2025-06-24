@@ -6,6 +6,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { toast } from 'sonner';
 import { ShoppingCart, User, Star, Shield, RotateCcw, Truck, CheckCircle, Zap, Droplets, Leaf } from 'lucide-react';
 import ScarcityNotifications from '@/components/ScarcityNotifications';
+import Reviews from '@/components/Reviews';
 
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
@@ -278,6 +279,9 @@ const Index = () => {
           </Accordion>
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <Reviews />
 
       {/* Emotional Marketing Block */}
       <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
