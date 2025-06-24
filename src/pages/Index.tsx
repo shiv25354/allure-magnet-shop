@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -8,6 +9,7 @@ import { ShoppingCart, User, Star, Shield, RotateCcw, Truck, CheckCircle, Zap, D
 import ScarcityNotifications from '@/components/ScarcityNotifications';
 import Reviews from '@/components/Reviews';
 import WhyChooseUs from '@/components/WhyChooseUs';
+import BuyWithConfidence from '@/components/BuyWithConfidence';
 
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
@@ -239,6 +241,9 @@ const Index = () => {
 
       {/* Why Choose Us Section */}
       <WhyChooseUs />
+
+      {/* Buy With Confidence Section */}
+      <BuyWithConfidence />
 
       {/* Accordion Section */}
       <section className="container mx-auto px-4 py-12">
