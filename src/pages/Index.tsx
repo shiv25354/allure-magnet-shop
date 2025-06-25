@@ -1,11 +1,12 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { toast } from 'sonner';
-import { ShoppingCart, User, Star, Shield, RotateCcw, Truck, CheckCircle, Zap, Droplets, Leaf } from 'lucide-react';
+import { User, Star, Shield, RotateCcw, Truck, CheckCircle, Zap, Droplets, Leaf } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import Cart from '@/components/Cart';
 import ScarcityNotifications from '@/components/ScarcityNotifications';
 import Reviews from '@/components/Reviews';
 import WhyChooseUs from '@/components/WhyChooseUs';
@@ -14,7 +15,7 @@ import BuyWithConfidence from '@/components/BuyWithConfidence';
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
   const [selectedBundle, setSelectedBundle] = useState('1-pack');
-  const [cartCount, setCartCount] = useState(0);
+  const { addItem } = useCart();
 
   const variants = [
     { id: 'yellow', name: 'Vibrant Yellow', color: '#FFFF00', image: '/lovable-uploads/9a6dc92e-72cf-4cb8-9c06-104ac7288a06.png' },
@@ -32,10 +33,20 @@ const Index = () => {
   const selectedBundleData = bundles.find(b => b.id === selectedBundle);
 
   const handleAddToCart = () => {
-    setCartCount(prev => prev + 1);
-    toast.success("Added to cart!", {
-      description: `${selectedBundleData?.name} - ${selectedVariantData?.name}`,
-    });
+    if (selectedVariantData && selectedBundleData) {
+      addItem({
+        name: 'Waterproof Rain Shoes Cover',
+        variant: selectedVariantData.name,
+        bundle: selectedBundleData.name,
+        price: selectedBundleData.price,
+        originalPrice: selectedBundleData.originalPrice,
+        image: selectedVariantData.image
+      });
+
+      toast.success("Added to cart!", {
+        description: `${selectedBundleData.name} - ${selectedVariantData.name}`,
+      });
+    }
   };
 
   return (
@@ -61,14 +72,7 @@ const Index = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <div className="relative">
-              <ShoppingCart className="h-6 w-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" />
-              {cartCount > 0 && (
-                <Badge className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center text-xs bg-red-500">
-                  {cartCount}
-                </Badge>
-              )}
-            </div>
+            <Cart />
             <User className="h-6 w-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" />
           </div>
         </div>
