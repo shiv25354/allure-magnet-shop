@@ -74,25 +74,7 @@ const WhyChooseUs = () => {
       {/* Mobile Card View */}
       <div className="md:hidden space-y-4">
         {comparisons.map((item, index) => <Card key={index} className="shadow-lg">
-            <CardContent className="p-6">
-              <h3 className="font-bold text-lg mb-4 text-gray-800">{item.feature}</h3>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center">
-                  <div className="text-sm font-medium text-purple-600 mb-2">💜 AquaShield</div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
-                    <span className="text-green-700 text-sm font-medium">{item.ourBrand}</span>
-                  </div>
-                </div>
-                <div className="text-center">
-                  <div className="text-sm font-medium text-gray-600 mb-2">⚠️ Others</div>
-                  <div className="flex items-center justify-center space-x-2">
-                    <X className="h-4 w-4 text-red-500" />
-                    <span className="text-red-600 text-sm font-medium">{item.otherBrands}</span>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
+            
           </Card>)}
       </div>
 
