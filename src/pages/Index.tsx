@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -15,6 +16,7 @@ import BuyWithConfidence from '@/components/BuyWithConfidence';
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
   const [selectedBundle, setSelectedBundle] = useState('1-pack');
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const { addItem } = useCart();
 
   const variants = [
@@ -46,6 +48,9 @@ const Index = () => {
       toast.success("Added to cart!", {
         description: `${selectedBundleData.name} - ${selectedVariantData.name}`,
       });
+
+      // Open cart drawer after adding item
+      setIsCartOpen(true);
     }
   };
 
@@ -72,7 +77,7 @@ const Index = () => {
           </nav>
 
           <div className="flex items-center space-x-4">
-            <Cart />
+            <Cart isOpen={isCartOpen} setIsOpen={setIsCartOpen} />
             <User className="h-6 w-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" />
           </div>
         </div>

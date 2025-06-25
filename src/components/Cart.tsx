@@ -15,18 +15,27 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 
-const Cart = () => {
+interface CartProps {
+  isOpen?: boolean;
+  setIsOpen?: (open: boolean) => void;
+}
+
+const Cart = ({ isOpen, setIsOpen }: CartProps) => {
   const { items, removeItem, updateQuantity, getTotalItems, getTotalPrice } = useCart();
-  const [isOpen, setIsOpen] = useState(false);
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
   const navigate = useNavigate();
 
+  // Use external state if provided, otherwise use internal state
+  const cartIsOpen = isOpen !== undefined ? isOpen : internalIsOpen;
+  const setCartIsOpen = setIsOpen !== undefined ? setIsOpen : setInternalIsOpen;
+
   const handleCheckout = () => {
-    setIsOpen(false);
+    setCartIsOpen(false);
     navigate('/checkout');
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet open={cartIsOpen} onOpenChange={setCartIsOpen}>
       <SheetTrigger asChild>
         <div className="relative cursor-pointer">
           <ShoppingCart className="h-6 w-6 text-gray-600 hover:text-blue-600 transition-colors" />
