@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Package, Truck, Home } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { CartItem } from '@/contexts/CartContext';
 
 interface Order {
   id: string;
@@ -13,7 +14,7 @@ interface Order {
   total_amount: number;
   status: string;
   created_at: string;
-  order_items: any[];
+  order_items: CartItem[];
 }
 
 const OrderSuccess = () => {
@@ -37,7 +38,14 @@ const OrderSuccess = () => {
         .single();
 
       if (error) throw error;
-      setOrder(data);
+      
+      // Parse the order_items JSON back to CartItem array
+      const orderWithParsedItems = {
+        ...data,
+        order_items: Array.isArray(data.order_items) ? data.order_items : JSON.parse(data.order_items as string)
+      };
+      
+      setOrder(orderWithParsedItems);
     } catch (error) {
       console.error('Error fetching order:', error);
     }

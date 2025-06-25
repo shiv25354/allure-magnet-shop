@@ -47,7 +47,7 @@ const Checkout = () => {
         city: formData.city,
         state: formData.state,
         postal_code: formData.postalCode,
-        order_items: items,
+        order_items: JSON.parse(JSON.stringify(items)), // Convert to Json type
         total_amount: getTotalPrice(),
         payment_method: paymentMethod,
         status: 'confirmed'
@@ -55,7 +55,7 @@ const Checkout = () => {
 
       const { data, error } = await supabase
         .from('orders')
-        .insert([orderData])
+        .insert(orderData) // Remove array wrapping
         .select()
         .single();
 
