@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -10,12 +9,14 @@ import { useCart } from '@/contexts/CartContext';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { ArrowLeft, CreditCard, Truck } from 'lucide-react';
+import { useDeliforce } from '@/hooks/useDeliforce';
 
 const Checkout = () => {
   const { items, getTotalPrice, clearCart } = useCart();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState('cod');
+  const { createDeliveryOrder } = useDeliforce();
   
   const [formData, setFormData] = useState({
     email: '',
@@ -47,7 +48,7 @@ const Checkout = () => {
         city: formData.city,
         state: formData.state,
         postal_code: formData.postalCode,
-        order_items: JSON.parse(JSON.stringify(items)), // Convert to Json type
+        order_items: JSON.parse(JSON.stringify(items)),
         total_amount: getTotalPrice(),
         payment_method: paymentMethod,
         status: 'confirmed'
@@ -55,7 +56,7 @@ const Checkout = () => {
 
       const { data, error } = await supabase
         .from('orders')
-        .insert(orderData) // Remove array wrapping
+        .insert(orderData)
         .select()
         .single();
 
@@ -64,6 +65,9 @@ const Checkout = () => {
       toast.success('Order placed successfully!', {
         description: `Order ID: ${data.id.slice(0, 8)}...`
       });
+
+      // Schedule delivery with Deliforce
+      await createDeliveryOrder(data.id);
 
       clearCart();
       navigate('/order-success', { state: { orderId: data.id } });

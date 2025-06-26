@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -6,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Package, Truck, Home } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { CartItem } from '@/contexts/CartContext';
+import DeliveryTracker from '@/components/DeliveryTracker';
 
 interface Order {
   id: string;
@@ -65,7 +65,7 @@ const OrderSuccess = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto space-y-6">
           <Card>
             <CardHeader className="text-center">
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -113,8 +113,8 @@ const OrderSuccess = () => {
                           <Truck className="h-4 w-4 text-orange-600" />
                         </div>
                         <div>
-                          <p className="font-medium">Shipping</p>
-                          <p className="text-sm text-gray-600">Your order will be delivered in 3-7 business days</p>
+                          <p className="font-medium">Delivery Scheduled</p>
+                          <p className="text-sm text-gray-600">Your order has been scheduled for delivery via Deliforce</p>
                         </div>
                       </div>
                     </div>
@@ -140,6 +140,9 @@ const OrderSuccess = () => {
               </div>
             </CardContent>
           </Card>
+
+          {/* Delivery Tracking Section */}
+          {order && <DeliveryTracker orderId={order.id} />}
         </div>
       </div>
     </div>
