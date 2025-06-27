@@ -107,7 +107,7 @@ const ContactUs = () => {
               <CardContent className="space-y-4">
                 <div>
                   <h4 className="font-semibold">Email</h4>
-                  <p className="text-gray-600">support@alluremagnetshop.com</p>
+                  <p className="text-gray-600">shiv25354@gmail.com</p>
                 </div>
                 
                 <div>
