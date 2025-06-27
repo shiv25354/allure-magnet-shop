@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -12,6 +11,7 @@ import ScarcityNotifications from '@/components/ScarcityNotifications';
 import Reviews from '@/components/Reviews';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import BuyWithConfidence from '@/components/BuyWithConfidence';
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
@@ -55,7 +55,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
       {/* Scarcity Notifications */}
       <ScarcityNotifications />
 
@@ -418,6 +418,8 @@ const Index = () => {
           </Button>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
