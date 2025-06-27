@@ -8,8 +8,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">Allure Magnet Shop</h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-sm mb-2">
               Premium magnetic products for health, wellness, and everyday use.
+            </p>
+            <p className="text-gray-400 text-sm">
+              Located in Chhattisgarh, Raipur
             </p>
           </div>
           
