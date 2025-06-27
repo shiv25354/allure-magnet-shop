@@ -16,7 +16,7 @@ const Footer = () => {
           <div>
             <h4 className="text-md font-semibold mb-4">Customer Service</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="mailto:support@alluremagnetshop.com" className="text-gray-400 hover:text-white">Contact Us</a></li>
+              <li><Link to="/contact-us" className="text-gray-400 hover:text-white">Contact Us</Link></li>
               <li><a href="mailto:returns@alluremagnetshop.com" className="text-gray-400 hover:text-white">Returns</a></li>
               <li><span className="text-gray-400">1-800-MAGNETS</span></li>
             </ul>
