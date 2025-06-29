@@ -6,7 +6,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { toast } from 'sonner';
 import { User, Star, Shield, RotateCcw, Truck, CheckCircle, Zap, Droplets, Leaf } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
-import { Link } from 'react-router-dom';
 import Cart from '@/components/Cart';
 import ScarcityNotifications from '@/components/ScarcityNotifications';
 import Reviews from '@/components/Reviews';
@@ -71,8 +70,8 @@ const Index = () => {
           <div className="text-2xl font-bold text-blue-600">AquaShield</div>
           
           <nav className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link to="/product" className="hover:text-blue-600 transition-colors">Product</Link>
+            <a href="#" className="hover:text-blue-600 transition-colors">Home</a>
+            <a href="#" className="hover:text-blue-600 transition-colors">Catalog</a>
             <a href="#" className="hover:text-blue-600 transition-colors">Contact</a>
             <a href="#" className="hover:text-blue-600 transition-colors">FAQ</a>
           </nav>
@@ -215,15 +214,6 @@ const Index = () => {
 
             <div className="text-center text-green-600 font-medium">
               ✅ Free Shipping Across India
-            </div>
-
-            <div className="text-center">
-              <Link 
-                to="/product" 
-                className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-semibold transition-colors"
-              >
-                🔍 View Detailed Product Page
-              </Link>
             </div>
           </div>
         </div>
