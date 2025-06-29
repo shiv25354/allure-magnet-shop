@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -12,7 +11,6 @@ import ScarcityNotifications from '@/components/ScarcityNotifications';
 import Reviews from '@/components/Reviews';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import BuyWithConfidence from '@/components/BuyWithConfidence';
-import HowToWear from '@/components/HowToWear';
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -252,9 +250,6 @@ const Index = () => {
 
       {/* Why Choose Us Section */}
       <WhyChooseUs />
-
-      {/* How to Wear Section */}
-      <HowToWear />
 
       {/* Buy With Confidence Section */}
       <BuyWithConfidence />
