@@ -6,6 +6,7 @@ export interface CartItem {
   name: string;
   variant: string;
   bundle: string;
+  size?: string;
   price: number;
   originalPrice: number;
   quantity: number;
@@ -36,12 +37,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);
 
   const addItem = (newItem: Omit<CartItem, 'id' | 'quantity'>) => {
-    const id = `${newItem.variant}-${newItem.bundle}-${Date.now()}`;
+    const id = `${newItem.variant}-${newItem.bundle}-${newItem.size || 'no-size'}-${Date.now()}`;
     const cartItem: CartItem = { ...newItem, id, quantity: 1 };
     
     setItems(prev => {
       const existingIndex = prev.findIndex(
-        item => item.variant === newItem.variant && item.bundle === newItem.bundle
+        item => item.variant === newItem.variant && item.bundle === newItem.bundle && item.size === newItem.size
       );
       
       if (existingIndex >= 0) {

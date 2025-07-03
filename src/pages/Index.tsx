@@ -16,6 +16,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
   const [selectedBundle, setSelectedBundle] = useState('1-pack');
+  const [selectedSize, setSelectedSize] = useState('8');
   const [isCartOpen, setIsCartOpen] = useState(false);
   const { addItem } = useCart();
 
@@ -31,22 +32,29 @@ const Index = () => {
     { id: '3-pack', name: '3-Pack', price: 1499, originalPrice: 2397, discount: 20, popular: true },
   ];
 
+  const sizes = [
+    { id: '7', name: 'Size 7' },
+    { id: '8', name: 'Size 8' },
+  ];
+
   const selectedVariantData = variants.find(v => v.id === selectedVariant);
   const selectedBundleData = bundles.find(b => b.id === selectedBundle);
+  const selectedSizeData = sizes.find(s => s.id === selectedSize);
 
   const handleAddToCart = () => {
-    if (selectedVariantData && selectedBundleData) {
+    if (selectedVariantData && selectedBundleData && selectedSizeData) {
       addItem({
         name: 'Waterproof Rain Shoes Cover',
         variant: selectedVariantData.name,
         bundle: selectedBundleData.name,
+        size: selectedSizeData.name,
         price: selectedBundleData.price,
         originalPrice: selectedBundleData.originalPrice,
         image: selectedVariantData.image
       });
 
       toast.success("Added to cart!", {
-        description: `${selectedBundleData.name} - ${selectedVariantData.name}`,
+        description: `${selectedBundleData.name} - ${selectedVariantData.name} - ${selectedSizeData.name}`,
       });
 
       // Open cart drawer after adding item
@@ -201,6 +209,26 @@ const Index = () => {
                       </div>
                     </div>
                   </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Size Selection */}
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Choose Size:</h3>
+              <div className="flex space-x-3">
+                {sizes.map((size) => (
+                  <button
+                    key={size.id}
+                    onClick={() => setSelectedSize(size.id)}
+                    className={`px-4 py-2 rounded-lg border transition-all ${
+                      selectedSize === size.id
+                        ? 'border-blue-500 bg-blue-50 text-blue-700'
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    {size.name}
+                  </button>
                 ))}
               </div>
             </div>
