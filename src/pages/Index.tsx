@@ -89,7 +89,7 @@ const Index = () => {
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b shadow-sm">
         {/* Urgency Bar */}
         <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center py-2 text-sm">
-          🎉 Add 3+ items, get 25% OFF + Free Shipping!
+          🚚 Free Shipping!
         </div>
         
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
