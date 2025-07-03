@@ -27,9 +27,9 @@ const Index = () => {
   ];
 
   const bundles = [
-    { id: '1-pack', name: '1-Pack', price: 599, originalPrice: 799, discount: 0 },
-    { id: '2-pack', name: '2-Pack', price: 1099, originalPrice: 1598, discount: 10, popular: false },
-    { id: '3-pack', name: '3-Pack', price: 1499, originalPrice: 2397, discount: 20, popular: true },
+    { id: '1-pack', name: '1-Pack', price: 399, originalPrice: 499, discount: 0 },
+    { id: '2-pack', name: '2-Pack', price: 699, originalPrice: 998, discount: 10, popular: false },
+    { id: '3-pack', name: '3-Pack', price: 999, originalPrice: 1497, discount: 20, popular: true },
   ];
 
   const sizes = [
