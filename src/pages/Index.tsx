@@ -13,7 +13,7 @@ import WhyChooseUs from '@/components/WhyChooseUs';
 import BuyWithConfidence from '@/components/BuyWithConfidence';
 import Footer from "@/components/Footer";
 const Index = () => {
-  const [selectedVariant, setSelectedVariant] = useState('yellow');
+  const [selectedVariant, setSelectedVariant] = useState('black');
   const [selectedBundle, setSelectedBundle] = useState('1-pack');
   const [selectedSize, setSelectedSize] = useState('8');
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -21,20 +21,15 @@ const Index = () => {
     addItem
   } = useCart();
   const variants = [{
-    id: 'yellow',
-    name: 'Vibrant Yellow',
-    color: '#FFFF00',
-    image: '/lovable-uploads/6b87439b-0901-4363-b727-c8031dbc23f8.png'
+    id: 'black',
+    name: 'Premium Black',
+    color: '#000000',
+    image: '/lovable-uploads/defd5188-debc-4dea-9f80-2d7180befa0f.png'
   }, {
-    id: 'gray',
-    name: 'Classic Gray',
-    color: '#808080',
-    image: '/lovable-uploads/a6472584-b1a6-43fd-b4f7-65d258c54e9b.png'
-  }, {
-    id: 'blue',
-    name: 'Ocean Blue',
-    color: '#4169E1',
-    image: '/lovable-uploads/26707f34-0b16-494d-bf3d-5f565f254ae4.png'
+    id: 'white',
+    name: 'Classic White',
+    color: '#FFFFFF',
+    image: '/lovable-uploads/e8555be7-7dd0-424d-8e44-79ba1b95a500.png'
   }];
   const bundles = [{
     id: '1-pack',
@@ -242,12 +237,35 @@ const Index = () => {
       </section>
 
       {/* Product Features with Images */}
-      
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Key Features</h2>
+          
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <img src="/lovable-uploads/30e606c8-7cbd-4859-8255-9043b0e63d35.png" alt="Product Features" className="w-full rounded-xl" />
+            </div>
+            <div>
+              <img src="/lovable-uploads/a652e314-49be-44ea-9d43-ea742662b74d.png" alt="Product Features White" className="w-full rounded-xl" />
+            </div>
+          </div>
+          
+          <div className="mt-12">
+            <img src="/lovable-uploads/d3085eb5-7206-4246-a33a-3446b6b11d93.png" alt="Compact and Portable Features" className="w-full max-w-4xl mx-auto rounded-xl" />
+          </div>
+        </div>
+      </section>
 
       {/* How to Wear Section */}
-      
-
-      {/* Application Scenarios */}
+      <section className="bg-gradient-to-br from-gray-50 to-blue-50 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">How to Wear</h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <img src="/lovable-uploads/f5f3859d-1253-41a5-ba8b-562f07d8e511.png" alt="Wearing Demonstration" className="w-full rounded-xl shadow-lg" />
+          </div>
+        </div>
+      </section>
       
 
       {/* Why Choose Us Section */}
