@@ -12,35 +12,61 @@ import Reviews from '@/components/Reviews';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import BuyWithConfidence from '@/components/BuyWithConfidence';
 import Footer from "@/components/Footer";
-
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('yellow');
   const [selectedBundle, setSelectedBundle] = useState('1-pack');
   const [selectedSize, setSelectedSize] = useState('8');
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const { addItem } = useCart();
-
-  const variants = [
-    { id: 'yellow', name: 'Vibrant Yellow', color: '#FFFF00', image: '/lovable-uploads/9a6dc92e-72cf-4cb8-9c06-104ac7288a06.png' },
-    { id: 'gray', name: 'Classic Gray', color: '#808080', image: '/lovable-uploads/c8c4a057-9ce1-47c2-9d41-e5ba85ec2dcb.png' },
-    { id: 'blue', name: 'Ocean Blue', color: '#4169E1', image: '/lovable-uploads/c8c4a057-9ce1-47c2-9d41-e5ba85ec2dcb.png' },
-  ];
-
-  const bundles = [
-    { id: '1-pack', name: '1-Pack', price: 399, originalPrice: 499, discount: 0 },
-    { id: '2-pack', name: '2-Pack', price: 699, originalPrice: 998, discount: 10, popular: false },
-    { id: '3-pack', name: '3-Pack', price: 999, originalPrice: 1497, discount: 20, popular: true },
-  ];
-
-  const sizes = [
-    { id: '7', name: 'Size 7' },
-    { id: '8', name: 'Size 8' },
-  ];
-
+  const {
+    addItem
+  } = useCart();
+  const variants = [{
+    id: 'yellow',
+    name: 'Vibrant Yellow',
+    color: '#FFFF00',
+    image: '/lovable-uploads/9a6dc92e-72cf-4cb8-9c06-104ac7288a06.png'
+  }, {
+    id: 'gray',
+    name: 'Classic Gray',
+    color: '#808080',
+    image: '/lovable-uploads/c8c4a057-9ce1-47c2-9d41-e5ba85ec2dcb.png'
+  }, {
+    id: 'blue',
+    name: 'Ocean Blue',
+    color: '#4169E1',
+    image: '/lovable-uploads/c8c4a057-9ce1-47c2-9d41-e5ba85ec2dcb.png'
+  }];
+  const bundles = [{
+    id: '1-pack',
+    name: '1-Pack',
+    price: 399,
+    originalPrice: 499,
+    discount: 0
+  }, {
+    id: '2-pack',
+    name: '2-Pack',
+    price: 699,
+    originalPrice: 998,
+    discount: 10,
+    popular: false
+  }, {
+    id: '3-pack',
+    name: '3-Pack',
+    price: 999,
+    originalPrice: 1497,
+    discount: 20,
+    popular: true
+  }];
+  const sizes = [{
+    id: '7',
+    name: 'Size 7'
+  }, {
+    id: '8',
+    name: 'Size 8'
+  }];
   const selectedVariantData = variants.find(v => v.id === selectedVariant);
   const selectedBundleData = bundles.find(b => b.id === selectedBundle);
   const selectedSizeData = sizes.find(s => s.id === selectedSize);
-
   const handleAddToCart = () => {
     if (selectedVariantData && selectedBundleData && selectedSizeData) {
       addItem({
@@ -52,18 +78,15 @@ const Index = () => {
         originalPrice: selectedBundleData.originalPrice,
         image: selectedVariantData.image
       });
-
       toast.success("Added to cart!", {
-        description: `${selectedBundleData.name} - ${selectedVariantData.name} - ${selectedSizeData.name}`,
+        description: `${selectedBundleData.name} - ${selectedVariantData.name} - ${selectedSizeData.name}`
       });
 
       // Open cart drawer after adding item
       setIsCartOpen(true);
     }
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
+  return <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50">
       {/* Scarcity Notifications */}
       <ScarcityNotifications />
 
@@ -97,26 +120,14 @@ const Index = () => {
           {/* Product Images */}
           <div className="space-y-4">
             <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <img 
-                src={selectedVariantData?.image} 
-                alt={selectedVariantData?.name}
-                className="w-full h-96 object-cover rounded-xl hover:scale-105 transition-transform duration-300"
-              />
+              <img src={selectedVariantData?.image} alt={selectedVariantData?.name} className="w-full h-96 object-cover rounded-xl hover:scale-105 transition-transform duration-300" />
             </div>
             
             <div className="flex space-x-3 justify-center">
-              {variants.map((variant) => (
-                <button
-                  key={variant.id}
-                  onClick={() => setSelectedVariant(variant.id)}
-                  className={`w-16 h-16 rounded-xl border-2 transition-all ${
-                    selectedVariant === variant.id 
-                      ? 'border-blue-500 ring-2 ring-blue-200' 
-                      : 'border-gray-200 hover:border-gray-300'
-                  }`}
-                  style={{ backgroundColor: variant.color, opacity: 0.8 }}
-                />
-              ))}
+              {variants.map(variant => <button key={variant.id} onClick={() => setSelectedVariant(variant.id)} className={`w-16 h-16 rounded-xl border-2 transition-all ${selectedVariant === variant.id ? 'border-blue-500 ring-2 ring-blue-200' : 'border-gray-200 hover:border-gray-300'}`} style={{
+              backgroundColor: variant.color,
+              opacity: 0.8
+            }} />)}
             </div>
           </div>
 
@@ -131,9 +142,7 @@ const Index = () => {
               </p>
               
               <div className="flex items-center space-x-2 mb-6">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                ))}
+                {[...Array(5)].map((_, i) => <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />)}
                 <span className="text-gray-600">(4.8/5 - 2,847 reviews)</span>
               </div>
 
@@ -161,19 +170,9 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-3">Choose Color:</h3>
               <div className="flex space-x-3">
-                {variants.map((variant) => (
-                  <button
-                    key={variant.id}
-                    onClick={() => setSelectedVariant(variant.id)}
-                    className={`px-4 py-2 rounded-lg border transition-all ${
-                      selectedVariant === variant.id
-                        ? 'border-blue-500 bg-blue-50 text-blue-700'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
+                {variants.map(variant => <button key={variant.id} onClick={() => setSelectedVariant(variant.id)} className={`px-4 py-2 rounded-lg border transition-all ${selectedVariant === variant.id ? 'border-blue-500 bg-blue-50 text-blue-700' : 'border-gray-200 hover:border-gray-300'}`}>
                     {variant.name}
-                  </button>
-                ))}
+                  </button>)}
               </div>
             </div>
 
@@ -181,35 +180,19 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-3">Choose Bundle:</h3>
               <div className="space-y-3">
-                {bundles.map((bundle) => (
-                  <div
-                    key={bundle.id}
-                    className={`relative p-4 rounded-lg border-2 cursor-pointer transition-all ${
-                      selectedBundle === bundle.id
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                    onClick={() => setSelectedBundle(bundle.id)}
-                  >
-                    {bundle.popular && (
-                      <Badge className="absolute -top-2 left-4 bg-orange-500">Most Popular</Badge>
-                    )}
+                {bundles.map(bundle => <div key={bundle.id} className={`relative p-4 rounded-lg border-2 cursor-pointer transition-all ${selectedBundle === bundle.id ? 'border-blue-500 bg-blue-50' : 'border-gray-200 hover:border-gray-300'}`} onClick={() => setSelectedBundle(bundle.id)}>
+                    {bundle.popular && <Badge className="absolute -top-2 left-4 bg-orange-500">Most Popular</Badge>}
                     <div className="flex items-center justify-between">
                       <div>
                         <div className="font-semibold">{bundle.name}</div>
-                        {bundle.discount > 0 && (
-                          <div className="text-sm text-green-600">Save {bundle.discount}%</div>
-                        )}
+                        {bundle.discount > 0 && <div className="text-sm text-green-600">Save {bundle.discount}%</div>}
                       </div>
                       <div className="text-right">
                         <div className="text-xl font-bold text-blue-600">₹{bundle.price}</div>
-                        {bundle.originalPrice > bundle.price && (
-                          <div className="text-sm text-gray-500 line-through">₹{bundle.originalPrice}</div>
-                        )}
+                        {bundle.originalPrice > bundle.price && <div className="text-sm text-gray-500 line-through">₹{bundle.originalPrice}</div>}
                       </div>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
 
@@ -217,26 +200,13 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-3">Choose Size:</h3>
               <div className="flex space-x-3">
-                {sizes.map((size) => (
-                  <button
-                    key={size.id}
-                    onClick={() => setSelectedSize(size.id)}
-                    className={`px-4 py-2 rounded-lg border transition-all ${
-                      selectedSize === size.id
-                        ? 'border-blue-500 bg-blue-50 text-blue-700'
-                        : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                  >
+                {sizes.map(size => <button key={size.id} onClick={() => setSelectedSize(size.id)} className={`px-4 py-2 rounded-lg border transition-all ${selectedSize === size.id ? 'border-blue-500 bg-blue-50 text-blue-700' : 'border-gray-200 hover:border-gray-300'}`}>
                     {size.name}
-                  </button>
-                ))}
+                  </button>)}
               </div>
             </div>
 
-            <Button 
-              onClick={handleAddToCart}
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-[1.02]"
-            >
+            <Button onClick={handleAddToCart} className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-[1.02]">
               🛒 Add to Cart - ₹{selectedBundleData?.price}
             </Button>
 
@@ -277,72 +247,13 @@ const Index = () => {
       </section>
 
       {/* Product Features with Images */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Product Features</h2>
-          
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <div>
-              <img 
-                src="/lovable-uploads/b69192b6-08ce-490c-a416-66bbed5e57ff.png" 
-                alt="Black shoe cover features"
-                className="w-full rounded-xl shadow-lg"
-              />
-            </div>
-            <div>
-              <img 
-                src="/lovable-uploads/26707f34-0b16-494d-bf3d-5f565f254ae4.png" 
-                alt="White shoe cover features"
-                className="w-full rounded-xl shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div className="text-center mb-12">
-            <img 
-              src="/lovable-uploads/89da949d-b033-4d2c-96b2-18ce761ffac4.png" 
-              alt="Compact and environmentally friendly features"
-              className="w-full max-w-4xl mx-auto rounded-xl shadow-lg"
-            />
-          </div>
-        </div>
-      </section>
+      
 
       {/* How to Wear Section */}
-      <section className="bg-gradient-to-br from-orange-50 to-red-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">How to Wear</h2>
-          
-          <div className="max-w-4xl mx-auto">
-            <img 
-              src="/lovable-uploads/ed90524e-24b9-47ca-96b8-9627887a2cd9.png" 
-              alt="Step by step wearing demonstration"
-              className="w-full rounded-xl shadow-lg mb-12"
-            />
-            
-            <img 
-              src="/lovable-uploads/a6472584-b1a6-43fd-b4f7-65d258c54e9b.png" 
-              alt="Detailed wearing process"
-              className="w-full rounded-xl shadow-lg"
-            />
-          </div>
-        </div>
-      </section>
+      
 
       {/* Application Scenarios */}
-      <section className="bg-white py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Perfect for Every Rainy Day</h2>
-          
-          <div className="max-w-4xl mx-auto">
-            <img 
-              src="/lovable-uploads/6b87439b-0901-4363-b727-c8031dbc23f8.png" 
-              alt="Application scenarios for rainy days"
-              className="w-full rounded-xl shadow-lg"
-            />
-          </div>
-        </div>
-      </section>
+      
 
       {/* Why Choose Us Section */}
       <WhyChooseUs />
@@ -408,10 +319,7 @@ const Index = () => {
             and your confidence high. Lightweight, durable, and designed for the active lifestyle. 
             Free shipping across India.
           </p>
-          <Button 
-            onClick={handleAddToCart}
-            className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-[1.02]"
-          >
+          <Button onClick={handleAddToCart} className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-[1.02]">
             💜 Add to Cart Now
           </Button>
         </div>
@@ -423,29 +331,41 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-center mb-12">Available in 6 Vibrant Colors</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { name: 'Vibrant Yellow', color: '#FFFF00', tag: 'Best Seller' },
-              { name: 'Classic Gray', color: '#808080', tag: '' },
-              { name: 'Ocean Blue', color: '#4169E1', tag: 'Popular' },
-              { name: 'Hot Pink', color: '#FF1493', tag: 'New' },
-              { name: 'Midnight Black', color: '#000000', tag: '' },
-              { name: 'Pure White', color: '#FFFFFF', tag: '' },
-            ].map((color, index) => (
-              <div key={index} className="text-center group">
+            {[{
+            name: 'Vibrant Yellow',
+            color: '#FFFF00',
+            tag: 'Best Seller'
+          }, {
+            name: 'Classic Gray',
+            color: '#808080',
+            tag: ''
+          }, {
+            name: 'Ocean Blue',
+            color: '#4169E1',
+            tag: 'Popular'
+          }, {
+            name: 'Hot Pink',
+            color: '#FF1493',
+            tag: 'New'
+          }, {
+            name: 'Midnight Black',
+            color: '#000000',
+            tag: ''
+          }, {
+            name: 'Pure White',
+            color: '#FFFFFF',
+            tag: ''
+          }].map((color, index) => <div key={index} className="text-center group">
                 <div className="relative bg-white rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all group-hover:scale-105">
-                  {color.tag && (
-                    <Badge className="absolute -top-2 left-2 bg-red-500 text-white text-xs">
+                  {color.tag && <Badge className="absolute -top-2 left-2 bg-red-500 text-white text-xs">
                       {color.tag}
-                    </Badge>
-                  )}
-                  <div 
-                    className="w-20 h-20 mx-auto rounded-full border-4 border-gray-200 mb-3"
-                    style={{ backgroundColor: color.color }}
-                  />
+                    </Badge>}
+                  <div className="w-20 h-20 mx-auto rounded-full border-4 border-gray-200 mb-3" style={{
+                backgroundColor: color.color
+              }} />
                   <h3 className="font-medium text-sm">{color.name}</h3>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -506,18 +426,13 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Keep Your Shoes Dry?</h2>
           <p className="text-xl mb-8">Join thousands of satisfied customers protecting their footwear</p>
-          <Button 
-            onClick={handleAddToCart}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-[1.02]"
-          >
+          <Button onClick={handleAddToCart} className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 px-8 py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-[1.02]">
             🛒 Order Now - Free Shipping
           </Button>
         </div>
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
