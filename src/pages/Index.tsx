@@ -276,6 +276,74 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Product Features with Images */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Product Features</h2>
+          
+          <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div>
+              <img 
+                src="/lovable-uploads/b69192b6-08ce-490c-a416-66bbed5e57ff.png" 
+                alt="Black shoe cover features"
+                className="w-full rounded-xl shadow-lg"
+              />
+            </div>
+            <div>
+              <img 
+                src="/lovable-uploads/26707f34-0b16-494d-bf3d-5f565f254ae4.png" 
+                alt="White shoe cover features"
+                className="w-full rounded-xl shadow-lg"
+              />
+            </div>
+          </div>
+
+          <div className="text-center mb-12">
+            <img 
+              src="/lovable-uploads/89da949d-b033-4d2c-96b2-18ce761ffac4.png" 
+              alt="Compact and environmentally friendly features"
+              className="w-full max-w-4xl mx-auto rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* How to Wear Section */}
+      <section className="bg-gradient-to-br from-orange-50 to-red-50 py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">How to Wear</h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <img 
+              src="/lovable-uploads/ed90524e-24b9-47ca-96b8-9627887a2cd9.png" 
+              alt="Step by step wearing demonstration"
+              className="w-full rounded-xl shadow-lg mb-12"
+            />
+            
+            <img 
+              src="/lovable-uploads/a6472584-b1a6-43fd-b4f7-65d258c54e9b.png" 
+              alt="Detailed wearing process"
+              className="w-full rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Application Scenarios */}
+      <section className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Perfect for Every Rainy Day</h2>
+          
+          <div className="max-w-4xl mx-auto">
+            <img 
+              src="/lovable-uploads/6b87439b-0901-4363-b727-c8031dbc23f8.png" 
+              alt="Application scenarios for rainy days"
+              className="w-full rounded-xl shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Why Choose Us Section */}
       <WhyChooseUs />
 
