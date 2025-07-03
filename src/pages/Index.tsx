@@ -123,12 +123,7 @@ const Index = () => {
               <img src={selectedVariantData?.image} alt={selectedVariantData?.name} className="w-full h-96 object-cover rounded-xl hover:scale-105 transition-transform duration-300" />
             </div>
             
-            <div className="flex space-x-3 justify-center">
-              {variants.map(variant => <button key={variant.id} onClick={() => setSelectedVariant(variant.id)} className={`w-16 h-16 rounded-xl border-2 transition-all ${selectedVariant === variant.id ? 'border-blue-500 ring-2 ring-blue-200' : 'border-gray-200 hover:border-gray-300'}`} style={{
-              backgroundColor: variant.color,
-              opacity: 0.8
-            }} />)}
-            </div>
+            
           </div>
 
           {/* Product Info */}
