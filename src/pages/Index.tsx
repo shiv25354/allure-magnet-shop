@@ -24,17 +24,17 @@ const Index = () => {
     id: 'yellow',
     name: 'Vibrant Yellow',
     color: '#FFFF00',
-    image: '/lovable-uploads/9a6dc92e-72cf-4cb8-9c06-104ac7288a06.png'
+    image: '/lovable-uploads/6b87439b-0901-4363-b727-c8031dbc23f8.png'
   }, {
     id: 'gray',
     name: 'Classic Gray',
     color: '#808080',
-    image: '/lovable-uploads/c8c4a057-9ce1-47c2-9d41-e5ba85ec2dcb.png'
+    image: '/lovable-uploads/a6472584-b1a6-43fd-b4f7-65d258c54e9b.png'
   }, {
     id: 'blue',
     name: 'Ocean Blue',
     color: '#4169E1',
-    image: '/lovable-uploads/c8c4a057-9ce1-47c2-9d41-e5ba85ec2dcb.png'
+    image: '/lovable-uploads/26707f34-0b16-494d-bf3d-5f565f254ae4.png'
   }];
   const bundles = [{
     id: '1-pack',
