@@ -27,8 +27,8 @@ const Index = () => {
     image: '/lovable-uploads/defd5188-debc-4dea-9f80-2d7180befa0f.png'
   }, {
     id: 'white',
-    name: 'White',
-    color: '#FFFFFF',
+    name: 'GhostWhite',
+    color: '#F8F8FF',
     image: '/lovable-uploads/e8555be7-7dd0-424d-8e44-79ba1b95a500.png'
   }, {
     id: 'red',
@@ -170,9 +170,23 @@ const Index = () => {
             <div>
               <h3 className="text-lg font-semibold mb-3">Choose Color:</h3>
               <div className="flex space-x-3">
-                {variants.map(variant => <button key={variant.id} onClick={() => setSelectedVariant(variant.id)} className={`px-4 py-2 rounded-lg border transition-all ${selectedVariant === variant.id ? 'border-blue-500 bg-blue-50 text-blue-700' : 'border-gray-200 hover:border-gray-300'}`}>
-                    {variant.name}
-                  </button>)}
+                {variants.map(variant => 
+                  <button 
+                    key={variant.id} 
+                    onClick={() => setSelectedVariant(variant.id)} 
+                    className={`flex items-center space-x-2 px-4 py-2 rounded-lg border transition-all hover-scale ${
+                      selectedVariant === variant.id 
+                        ? 'border-blue-500 bg-blue-50 text-blue-700 ring-2 ring-blue-200' 
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div 
+                      className="w-6 h-6 rounded-full border-2 border-gray-300" 
+                      style={{ backgroundColor: variant.color }}
+                    />
+                    <span>{variant.name}</span>
+                  </button>
+                )}
               </div>
             </div>
 
