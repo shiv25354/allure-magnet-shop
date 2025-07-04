@@ -22,13 +22,23 @@ const Index = () => {
   } = useCart();
   const variants = [{
     id: 'black',
-    name: 'Premium Black',
+    name: 'Black',
     color: '#000000',
     image: '/lovable-uploads/defd5188-debc-4dea-9f80-2d7180befa0f.png'
   }, {
     id: 'white',
-    name: 'Classic White',
+    name: 'White',
     color: '#FFFFFF',
+    image: '/lovable-uploads/e8555be7-7dd0-424d-8e44-79ba1b95a500.png'
+  }, {
+    id: 'red',
+    name: 'Red',
+    color: '#FF0000',
+    image: '/lovable-uploads/defd5188-debc-4dea-9f80-2d7180befa0f.png'
+  }, {
+    id: 'blue',
+    name: 'Blue',
+    color: '#0000FF',
     image: '/lovable-uploads/e8555be7-7dd0-424d-8e44-79ba1b95a500.png'
   }];
   const bundles = [{
