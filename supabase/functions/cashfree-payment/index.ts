@@ -51,7 +51,7 @@ serve(async (req) => {
 
       // Generate Cashfree API signature
       const timestamp = Math.floor(Date.now() / 1000).toString();
-      const signatureData = `POST\n/pg/orders\n${timestamp}`;
+      const signatureData = `POST\n/pg/orders\n${JSON.stringify(cashfreeOrderData)}\n${timestamp}`;
       
       const encoder = new TextEncoder();
       const key = await crypto.subtle.importKey(
