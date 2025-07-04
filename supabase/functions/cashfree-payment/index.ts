@@ -49,9 +49,16 @@ serve(async (req) => {
         }
       };
 
-      // Generate Cashfree API signature
+      // Generate Cashfree API signature according to their documentation
       const timestamp = Math.floor(Date.now() / 1000).toString();
-      const signatureData = `POST\n/pg/orders\n${JSON.stringify(cashfreeOrderData)}\n${timestamp}`;
+      
+      // Create signature string as per Cashfree docs: POST + endpoint + body + timestamp
+      const requestBody = JSON.stringify(cashfreeOrderData);
+      const signatureData = `POST\n/pg/orders\n${requestBody}\n${timestamp}`;
+      
+      console.log('Signature data:', signatureData);
+      console.log('Using timestamp:', timestamp);
+      console.log('Request body:', requestBody);
       
       const encoder = new TextEncoder();
       const key = await crypto.subtle.importKey(
@@ -71,6 +78,8 @@ serve(async (req) => {
       const signatureHex = Array.from(new Uint8Array(signature))
         .map(b => b.toString(16).padStart(2, '0'))
         .join('');
+      
+      console.log('Generated signature:', signatureHex);
 
       const baseUrl = cashfreeEnvironment === 'PROD' 
         ? 'https://api.cashfree.com' 

@@ -76,7 +76,12 @@ const Checkout = () => {
 
         if (paymentError || !paymentData?.success) {
           console.error('Payment creation failed:', paymentError || paymentData);
-          toast.error('Failed to initialize payment. Please try again.');
+          
+          // Show more specific error message
+          const errorMessage = paymentData?.error || paymentError?.message || 'Failed to initialize payment';
+          toast.error(`Payment Error: ${errorMessage}`, {
+            description: 'Please check your payment details and try again.'
+          });
           return;
         }
 
