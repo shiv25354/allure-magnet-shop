@@ -19,6 +19,9 @@ export type Database = {
           full_name: string
           id: string
           order_items: Json
+          payment_gateway_data: Json | null
+          payment_gateway_order_id: string | null
+          payment_link_url: string | null
           payment_method: string | null
           phone: string
           postal_code: string
@@ -37,6 +40,9 @@ export type Database = {
           full_name: string
           id?: string
           order_items: Json
+          payment_gateway_data?: Json | null
+          payment_gateway_order_id?: string | null
+          payment_link_url?: string | null
           payment_method?: string | null
           phone: string
           postal_code: string
@@ -55,6 +61,9 @@ export type Database = {
           full_name?: string
           id?: string
           order_items?: Json
+          payment_gateway_data?: Json | null
+          payment_gateway_order_id?: string | null
+          payment_link_url?: string | null
           payment_method?: string | null
           phone?: string
           postal_code?: string

@@ -51,7 +51,7 @@ const Checkout = () => {
         order_items: JSON.parse(JSON.stringify(items)),
         total_amount: getTotalPrice(),
         payment_method: paymentMethod,
-        status: 'confirmed'
+        status: paymentMethod === 'cod' ? 'confirmed' : 'pending'
       };
 
       const { data, error } = await supabase
@@ -62,15 +62,44 @@ const Checkout = () => {
 
       if (error) throw error;
 
-      toast.success('Order placed successfully!', {
-        description: `Order ID: ${data.id.slice(0, 8)}...`
-      });
+      if (paymentMethod === 'online') {
+        // Handle online payment with Cashfree
+        const { data: paymentData, error: paymentError } = await supabase.functions.invoke('cashfree-payment', {
+          body: {
+            orderId: data.id,
+            amount: getTotalPrice(),
+            customerName: formData.fullName,
+            customerEmail: formData.email,
+            customerPhone: formData.phone
+          }
+        });
 
-      // Schedule delivery with Deliforce
-      await createDeliveryOrder(data.id);
+        if (paymentError || !paymentData?.success) {
+          console.error('Payment creation failed:', paymentError || paymentData);
+          toast.error('Failed to initialize payment. Please try again.');
+          return;
+        }
 
-      clearCart();
-      navigate('/order-success', { state: { orderId: data.id } });
+        // Redirect to Cashfree payment page
+        if (paymentData.payment_link) {
+          window.location.href = paymentData.payment_link;
+          return;
+        } else {
+          toast.error('Payment link not available. Please try again.');
+          return;
+        }
+      } else {
+        // Cash on Delivery flow
+        toast.success('Order placed successfully!', {
+          description: `Order ID: ${data.id.slice(0, 8)}...`
+        });
+
+        // Schedule delivery with Deliforce
+        await createDeliveryOrder(data.id);
+
+        clearCart();
+        navigate('/order-success', { state: { orderId: data.id } });
+      }
     } catch (error) {
       console.error('Error placing order:', error);
       toast.error('Failed to place order. Please try again.');

@@ -1,1 +1,7 @@
 project_id = "mbzeenozsmklyjfzdjjh"
+
+[functions.cashfree-payment]
+verify_jwt = false
+
+[functions.cashfree-webhook]
+verify_jwt = false
