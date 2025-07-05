@@ -114,12 +114,21 @@ const Index = () => {
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b shadow-sm">
         {/* Urgency Bar */}
-        <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center py-2 text-sm">
+        <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center py-2 text-xs md:text-sm">
           🚚 Free Shipping!
         </div>
         
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="text-2xl font-bold text-blue-600">AquaShield</div>
+          <div className="text-xl md:text-2xl font-bold text-blue-600">AquaShield</div>
+          
+          {/* Mobile Menu Button */}
+          <button className="md:hidden p-2">
+            <div className="w-6 h-6 flex flex-col justify-center items-center">
+              <span className="block w-5 h-0.5 bg-gray-600 mb-1"></span>
+              <span className="block w-5 h-0.5 bg-gray-600 mb-1"></span>
+              <span className="block w-5 h-0.5 bg-gray-600"></span>
+            </div>
+          </button>
           
           <nav className="hidden md:flex items-center space-x-6">
             <a href="#" className="hover:text-blue-600 transition-colors">Home</a>
@@ -128,9 +137,9 @@ const Index = () => {
             <a href="#" className="hover:text-blue-600 transition-colors">FAQ</a>
           </nav>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2 md:space-x-4">
             <Cart isOpen={isCartOpen} setIsOpen={setIsCartOpen} />
-            <User className="h-6 w-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" />
+            <User className="h-5 w-5 md:h-6 md:w-6 text-gray-600 hover:text-blue-600 cursor-pointer transition-colors" />
           </div>
         </div>
       </header>

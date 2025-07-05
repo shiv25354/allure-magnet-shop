@@ -63,66 +63,66 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
   };
 
   return (
-    <section className="container mx-auto px-4 py-12">
-      <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="container mx-auto px-4 py-6 md:py-12">
+      <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
         {/* Product Images */}
-        <div className="space-y-4">
+        <div className="space-y-4 order-1 lg:order-1">
           <ProductGallery selectedVariant={selectedVariant} />
         </div>
 
         {/* Product Info */}
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6 order-2 lg:order-2">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">
               Waterproof Rain Shoes Cover
             </h1>
-            <p className="text-xl text-gray-600 mb-4">
+            <p className="text-lg md:text-xl text-gray-600 mb-4">
               Reusable Silicone Protection for Every Step
             </p>
             
-            <div className="flex items-center space-x-2 mb-6">
+            <div className="flex items-center space-x-2 mb-4 md:mb-6">
               {[...Array(5)].map((_, i) => 
-                <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                <Star key={i} className="h-4 w-4 md:h-5 md:w-5 fill-yellow-400 text-yellow-400" />
               )}
-              <span className="text-gray-600">(4.8/5 - 2,847 reviews)</span>
+              <span className="text-sm md:text-base text-gray-600">(4.8/5 - 2,847 reviews)</span>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2 md:space-y-3">
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                <span>100% Waterproof Silicone Protection</span>
+                <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
+                <span className="text-sm md:text-base">100% Waterproof Silicone Protection</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                <span>Anti-Slip Textured Sole Design</span>
+                <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
+                <span className="text-sm md:text-base">Anti-Slip Textured Sole Design</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                <span>Stretchy Fit for All Shoe Sizes</span>
+                <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
+                <span className="text-sm md:text-base">Stretchy Fit for All Shoe Sizes</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="h-5 w-5 text-green-500" />
-                <span>Easy to Clean & Store</span>
+                <CheckCircle className="h-4 w-4 md:h-5 md:w-5 text-green-500 flex-shrink-0" />
+                <span className="text-sm md:text-base">Easy to Clean & Store</span>
               </div>
             </div>
           </div>
 
           {/* Variant Selection */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Choose Color:</h3>
-            <div className="flex space-x-3">
+            <h3 className="text-base md:text-lg font-semibold mb-3">Choose Color:</h3>
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {variants.map(variant => 
                 <button 
                   key={variant.id} 
                   onClick={() => setSelectedVariant(variant.id)} 
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg border transition-all hover-scale ${
+                  className={`flex items-center space-x-2 px-3 py-2 md:px-4 md:py-2 rounded-lg border transition-all hover-scale text-sm md:text-base ${
                     selectedVariant === variant.id 
                       ? 'border-blue-500 bg-blue-50 text-blue-700 ring-2 ring-blue-200' 
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   <div 
-                    className="w-6 h-6 rounded-full border-2 border-gray-300" 
+                    className="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-gray-300" 
                     style={{ backgroundColor: variant.color }}
                   />
                   <span>{variant.name}</span>
@@ -133,12 +133,12 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
 
           {/* Bundle Selection */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Choose Bundle:</h3>
+            <h3 className="text-base md:text-lg font-semibold mb-3">Choose Bundle:</h3>
             <div className="space-y-3">
               {bundles.map(bundle => 
                 <div 
                   key={bundle.id} 
-                  className={`relative p-4 rounded-lg border-2 cursor-pointer transition-all ${
+                  className={`relative p-3 md:p-4 rounded-lg border-2 cursor-pointer transition-all ${
                     selectedBundle === bundle.id 
                       ? 'border-blue-500 bg-blue-50' 
                       : 'border-gray-200 hover:border-gray-300'
@@ -146,19 +146,19 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
                   onClick={() => setSelectedBundle(bundle.id)}
                 >
                   {bundle.popular && 
-                    <Badge className="absolute -top-2 left-4 bg-orange-500">Most Popular</Badge>
+                    <Badge className="absolute -top-2 left-4 bg-orange-500 text-xs">Most Popular</Badge>
                   }
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold">{bundle.name}</div>
+                      <div className="font-semibold text-sm md:text-base">{bundle.name}</div>
                       {bundle.discount > 0 && 
-                        <div className="text-sm text-green-600">Save {bundle.discount}%</div>
+                        <div className="text-xs md:text-sm text-green-600">Save {bundle.discount}%</div>
                       }
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-bold text-blue-600">₹{bundle.price}</div>
+                      <div className="text-lg md:text-xl font-bold text-blue-600">₹{bundle.price}</div>
                       {bundle.originalPrice > bundle.price && 
-                        <div className="text-sm text-gray-500 line-through">₹{bundle.originalPrice}</div>
+                        <div className="text-xs md:text-sm text-gray-500 line-through">₹{bundle.originalPrice}</div>
                       }
                     </div>
                   </div>
@@ -169,13 +169,13 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
 
           {/* Size Selection */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Choose Size:</h3>
-            <div className="flex space-x-3">
+            <h3 className="text-base md:text-lg font-semibold mb-3">Choose Size:</h3>
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {sizes.map(size => 
                 <button 
                   key={size.id} 
                   onClick={() => setSelectedSize(size.id)} 
-                  className={`px-4 py-2 rounded-lg border transition-all ${
+                  className={`px-3 py-2 md:px-4 md:py-2 rounded-lg border transition-all text-sm md:text-base ${
                     selectedSize === size.id 
                       ? 'border-blue-500 bg-blue-50 text-blue-700' 
                       : 'border-gray-200 hover:border-gray-300'
@@ -189,12 +189,12 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
 
           <Button 
             onClick={handleAddToCart} 
-            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-4 text-lg font-semibold rounded-xl transition-all transform hover:scale-[1.02]"
+            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 md:py-4 text-base md:text-lg font-semibold rounded-xl transition-all transform hover:scale-[1.02]"
           >
             🛒 Add to Cart - ₹{selectedBundleData?.price}
           </Button>
 
-          <div className="text-center text-green-600 font-medium">
+          <div className="text-center text-green-600 font-medium text-sm md:text-base">
             ✅ Free Shipping Across India
           </div>
         </div>
