@@ -12,6 +12,7 @@ import Reviews from '@/components/Reviews';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import BuyWithConfidence from '@/components/BuyWithConfidence';
 import Footer from "@/components/Footer";
+import ProductGallery from '@/components/ProductGallery';
 const Index = () => {
   const [selectedVariant, setSelectedVariant] = useState('black');
   const [selectedBundle, setSelectedBundle] = useState('1-pack');
@@ -124,11 +125,7 @@ const Index = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Product Images */}
           <div className="space-y-4">
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <img src={selectedVariantData?.image} alt={selectedVariantData?.name} className="w-full h-96 object-cover rounded-xl hover:scale-105 transition-transform duration-300" />
-            </div>
-            
-            
+            <ProductGallery selectedVariant={selectedVariant} />
           </div>
 
           {/* Product Info */}
