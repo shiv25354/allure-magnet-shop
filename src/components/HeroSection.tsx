@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { Star, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useCart } from '@/contexts/CartContext';
+import ProductGallery from '@/components/ProductGallery';
 
 interface Variant {
   id: string;
@@ -63,9 +64,14 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
 
   return (
     <section className="container mx-auto px-4 py-6 md:py-12">
-      <div className="flex justify-center">
+      <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
+        {/* Product Images */}
+        <div className="space-y-4 order-1 lg:order-1">
+          <ProductGallery selectedVariant={selectedVariant} />
+        </div>
+
         {/* Product Info */}
-        <div className="max-w-2xl space-y-4 md:space-y-6">
+        <div className="space-y-4 md:space-y-6 order-2 lg:order-2">
           <div>
             <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">
               Waterproof Rain Shoes Cover
