@@ -59,6 +59,72 @@ const ProductGallery = ({ selectedVariant }: ProductGalleryProps) => {
       src: '/lovable-uploads/4463a68b-f49f-4d8b-9fbc-55c95e99ebe0.png',
       alt: 'Anti-Skid Pattern and Features - White',
       variants: ['white', 'blue']
+    },
+    {
+      id: 'durability',
+      src: '/lovable-uploads/26707f34-0b16-494d-bf3d-5f565f254ae4.png',
+      alt: 'Durability Test and Quality',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'usage-demo',
+      src: '/lovable-uploads/30e606c8-7cbd-4859-8255-9043b0e63d35.png',
+      alt: 'Usage Demonstration',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'protection',
+      src: '/lovable-uploads/6b87439b-0901-4363-b727-c8031dbc23f8.png',
+      alt: 'Complete Waterproof Protection',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'flexibility',
+      src: '/lovable-uploads/89da949d-b033-4d2c-96b2-18ce761ffac4.png',
+      alt: 'Flexible Material Design',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'compact',
+      src: '/lovable-uploads/9a6dc92e-72cf-4cb8-9c06-104ac7288a06.png',
+      alt: 'Compact and Space-Saving',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'lifestyle',
+      src: '/lovable-uploads/a652e314-49be-44ea-9d43-ea742662b74d.png',
+      alt: 'Lifestyle and Daily Use',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'outdoor',
+      src: '/lovable-uploads/b69192b6-08ce-490c-a416-66bbed5e57ff.png',
+      alt: 'Perfect for Outdoor Activities',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'quality-check',
+      src: '/lovable-uploads/c8c4a057-9ce1-47c2-9d41-e5ba85ec2dcb.png',
+      alt: 'Quality Control and Testing',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'waterproof-test',
+      src: '/lovable-uploads/d3085eb5-7206-4246-a33a-3446b6b11d93.png',
+      alt: 'Waterproof Performance Test',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'packaging',
+      src: '/lovable-uploads/ed90524e-24b9-47ca-96b8-9627887a2cd9.png',
+      alt: 'Premium Packaging',
+      variants: ['black', 'white', 'red', 'blue']
+    },
+    {
+      id: 'size-guide',
+      src: '/lovable-uploads/f5f3859d-1253-41a5-ba8b-562f07d8e511.png',
+      alt: 'Size Guide and Fitting',
+      variants: ['black', 'white', 'red', 'blue']
     }
   ];
 
