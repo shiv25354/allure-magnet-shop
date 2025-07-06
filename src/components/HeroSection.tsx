@@ -107,28 +107,6 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
             </div>
           </div>
 
-          {/* Variant Selection */}
-          <div>
-            <h3 className="text-base md:text-lg font-semibold mb-3">Choose Color:</h3>
-            <div className="flex flex-wrap gap-2 md:gap-3">
-              {variants.map(variant => 
-                <button 
-                  key={variant.id} 
-                  onClick={() => setSelectedVariant(variant.id)} 
-                  className={`flex items-center justify-center p-2 rounded-lg border transition-all hover-scale ${
-                    selectedVariant === variant.id 
-                      ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200' 
-                      : 'border-gray-200 hover:border-gray-300'
-                  }`}
-                >
-                  <div 
-                    className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-gray-300" 
-                    style={{ backgroundColor: variant.color }}
-                  />
-                </button>
-              )}
-            </div>
-          </div>
 
           {/* Bundle Selection */}
           <div>
