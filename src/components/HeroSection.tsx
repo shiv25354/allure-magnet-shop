@@ -4,7 +4,6 @@ import { Badge } from '@/components/ui/badge';
 import { Star, CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { useCart } from '@/contexts/CartContext';
-import ProductGallery from '@/components/ProductGallery';
 
 interface Variant {
   id: string;
@@ -64,14 +63,9 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
 
   return (
     <section className="container mx-auto px-4 py-6 md:py-12">
-      <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
-        {/* Product Images */}
-        <div className="space-y-4 order-1 lg:order-1">
-          <ProductGallery selectedVariant={selectedVariant} />
-        </div>
-
+      <div className="flex justify-center">
         {/* Product Info */}
-        <div className="space-y-4 md:space-y-6 order-2 lg:order-2">
+        <div className="max-w-2xl space-y-4 md:space-y-6">
           <div>
             <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-2">
               Waterproof Rain Shoes Cover
@@ -115,17 +109,16 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
                 <button 
                   key={variant.id} 
                   onClick={() => setSelectedVariant(variant.id)} 
-                  className={`flex items-center space-x-2 px-3 py-2 md:px-4 md:py-2 rounded-lg border transition-all hover-scale text-sm md:text-base ${
+                  className={`flex items-center justify-center p-2 rounded-lg border transition-all hover-scale ${
                     selectedVariant === variant.id 
-                      ? 'border-blue-500 bg-blue-50 text-blue-700 ring-2 ring-blue-200' 
+                      ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200' 
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   <div 
-                    className="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-gray-300" 
+                    className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-gray-300" 
                     style={{ backgroundColor: variant.color }}
                   />
-                  <span>{variant.name}</span>
                 </button>
               )}
             </div>
