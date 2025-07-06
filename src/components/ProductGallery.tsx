@@ -14,6 +14,8 @@ interface ProductGalleryProps {
 const ProductGallery = ({ selectedVariant }: ProductGalleryProps) => {
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
+  console.log('ProductGallery rendered with selectedVariant:', selectedVariant);
+
   // Gallery images for different product views
   const galleryImages = [
     {
@@ -66,6 +68,10 @@ const ProductGallery = ({ selectedVariant }: ProductGalleryProps) => {
   );
 
   const currentImages = filteredImages.length > 0 ? filteredImages : galleryImages;
+
+  console.log('filteredImages:', filteredImages);
+  console.log('currentImages:', currentImages);
+  console.log('currentImages.length:', currentImages.length);
 
   return (
     <div className="space-y-4">
