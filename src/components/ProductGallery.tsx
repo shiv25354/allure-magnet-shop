@@ -164,21 +164,21 @@ const ProductGallery = ({ selectedVariant }: ProductGalleryProps) => {
       </div>
 
       {/* Thumbnail Navigation */}
-      <div className="flex space-x-2 overflow-x-auto pb-2 px-1">
+      <div className="flex space-x-2 md:space-x-3 overflow-x-auto pb-2 px-1 scrollbar-hide">
         {currentImages.map((image, index) => (
           <button
             key={image.id}
             onClick={() => setSelectedImageIndex(index)}
-            className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg border-2 transition-all ${
+            className={`flex-shrink-0 w-14 h-14 md:w-20 md:h-20 rounded-lg border-2 transition-all duration-200 touch-manipulation ${
               selectedImageIndex === index
-                ? 'border-blue-500 ring-2 ring-blue-200'
-                : 'border-gray-200 hover:border-gray-300'
+                ? 'border-blue-500 ring-2 ring-blue-200 scale-105'
+                : 'border-gray-200 hover:border-gray-300 hover:scale-102'
             }`}
           >
             <img
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover rounded-md"
+              className="w-full h-full object-cover rounded-md pointer-events-none"
             />
           </button>
         ))}
