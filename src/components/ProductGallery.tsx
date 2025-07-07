@@ -142,7 +142,7 @@ const ProductGallery = ({ selectedVariant }: ProductGalleryProps) => {
   return (
     <div className="space-y-3 md:space-y-4">
       {/* Main Image Display */}
-      <div className="bg-white rounded-xl md:rounded-2xl p-3 md:p-8 shadow-lg md:shadow-xl">
+      <div className="bg-white rounded-xl md:rounded-2xl p-2 md:p-8 shadow-lg md:shadow-xl overflow-hidden touch-manipulation">
         <Carousel className="w-full" opts={{ loop: true }}>
           <CarouselContent>
             {currentImages.map((image, index) => (
