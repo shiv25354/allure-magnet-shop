@@ -51,24 +51,24 @@ const Index = () => {
     {
       id: '1-pack',
       name: '1-Pack',
-      price: 399,
+      price: 499,
       originalPrice: 499,
       discount: 0
     },
     {
       id: '2-pack',
       name: '2-Pack',
-      price: 699,
-      originalPrice: 998,
-      discount: 10,
+      price: 799,
+      originalPrice: 799,
+      discount: 0,
       popular: false
     },
     {
       id: '3-pack',
       name: '3-Pack',
       price: 999,
-      originalPrice: 1497,
-      discount: 20,
+      originalPrice: 999,
+      discount: 0,
       popular: true
     }
   ];
