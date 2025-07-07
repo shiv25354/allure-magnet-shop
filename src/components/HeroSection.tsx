@@ -115,17 +115,16 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
                 <button 
                   key={variant.id} 
                   onClick={() => setSelectedVariant(variant.id)} 
-                  className={`flex items-center space-x-2 px-3 py-2 md:px-4 md:py-2 rounded-lg border transition-all hover-scale text-sm md:text-base ${
+                  className={`p-2 md:p-3 rounded-lg border transition-all hover-scale ${
                     selectedVariant === variant.id 
-                      ? 'border-blue-500 bg-blue-50 text-blue-700 ring-2 ring-blue-200' 
+                      ? 'border-blue-500 bg-blue-50 ring-2 ring-blue-200' 
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
                 >
                   <div 
-                    className="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-gray-300" 
+                    className="w-6 h-6 md:w-8 md:h-8 rounded-full border-2 border-gray-300" 
                     style={{ backgroundColor: variant.color }}
                   />
-                  <span>{variant.name}</span>
                 </button>
               )}
             </div>
