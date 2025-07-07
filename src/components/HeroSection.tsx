@@ -107,6 +107,31 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
             </div>
           </div>
 
+          {/* Color Selection */}
+          <div>
+            <h3 className="text-base md:text-lg font-semibold mb-3">Choose Color:</h3>
+            <div className="flex flex-wrap gap-2 md:gap-3">
+              {variants.map(variant => 
+                <button 
+                  key={variant.id} 
+                  onClick={() => setSelectedVariant(variant.id)} 
+                  className={`w-12 h-12 md:w-14 md:h-14 rounded-full border-2 transition-all relative overflow-hidden ${
+                    selectedVariant === variant.id 
+                      ? 'border-blue-500 ring-2 ring-blue-200' 
+                      : 'border-gray-300 hover:border-gray-400'
+                  }`}
+                  style={{ backgroundColor: variant.color }}
+                  title={variant.name}
+                >
+                  {selectedVariant === variant.id && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-lg"></div>
+                    </div>
+                  )}
+                </button>
+              )}
+            </div>
+          </div>
 
           {/* Bundle Selection */}
           <div>
