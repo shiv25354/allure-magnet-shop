@@ -140,26 +140,26 @@ const ProductGallery = ({ selectedVariant }: ProductGalleryProps) => {
   console.log('currentImages.length:', currentImages.length);
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-3 md:space-y-4">
       {/* Main Image Display */}
-      <div className="bg-white rounded-2xl p-4 md:p-8 shadow-xl">
-        <Carousel className="w-full">
+      <div className="bg-white rounded-xl md:rounded-2xl p-3 md:p-8 shadow-lg md:shadow-xl">
+        <Carousel className="w-full" opts={{ loop: true }}>
           <CarouselContent>
             {currentImages.map((image, index) => (
               <CarouselItem key={image.id}>
-                <div className="aspect-square relative">
+                <div className="aspect-square relative touch-manipulation">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full h-full object-contain md:object-cover rounded-xl hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain rounded-lg md:rounded-xl hover:scale-105 transition-transform duration-300 cursor-pointer"
                     onClick={() => setSelectedImageIndex(index)}
                   />
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-2 md:left-4 h-8 w-8 md:h-10 md:w-10" />
-          <CarouselNext className="right-2 md:right-4 h-8 w-8 md:h-10 md:w-10" />
+          <CarouselPrevious className="hidden md:flex left-2 md:left-4 h-8 w-8 md:h-10 md:w-10" />
+          <CarouselNext className="hidden md:flex right-2 md:right-4 h-8 w-8 md:h-10 md:w-10" />
         </Carousel>
       </div>
 
