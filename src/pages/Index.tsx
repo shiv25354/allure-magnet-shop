@@ -75,6 +75,10 @@ const Index = () => {
 
   const sizes = [
     {
+      id: '6',
+      name: 'Size 6'
+    },
+    {
       id: '7',
       name: 'Size 7'
     },
