@@ -107,7 +107,7 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
             </div>
           </div>
 
-          {/* Color Selection */}
+          {/* Variant Selection */}
           <div>
             <h3 className="text-base md:text-lg font-semibold mb-3">Choose Color:</h3>
             <div className="flex flex-wrap gap-2 md:gap-3">
@@ -115,19 +115,17 @@ const HeroSection = ({ variants, bundles, sizes, setIsCartOpen }: HeroSectionPro
                 <button 
                   key={variant.id} 
                   onClick={() => setSelectedVariant(variant.id)} 
-                  className={`w-12 h-12 md:w-14 md:h-14 rounded-full border-2 transition-all relative overflow-hidden ${
+                  className={`flex items-center space-x-2 px-3 py-2 md:px-4 md:py-2 rounded-lg border transition-all hover-scale text-sm md:text-base ${
                     selectedVariant === variant.id 
-                      ? 'border-blue-500 ring-2 ring-blue-200' 
-                      : 'border-gray-300 hover:border-gray-400'
+                      ? 'border-blue-500 bg-blue-50 text-blue-700 ring-2 ring-blue-200' 
+                      : 'border-gray-200 hover:border-gray-300'
                   }`}
-                  style={{ backgroundColor: variant.color }}
-                  title={variant.name}
                 >
-                  {selectedVariant === variant.id && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-3 h-3 md:w-4 md:h-4 bg-white rounded-full shadow-lg"></div>
-                    </div>
-                  )}
+                  <div 
+                    className="w-5 h-5 md:w-6 md:h-6 rounded-full border-2 border-gray-300" 
+                    style={{ backgroundColor: variant.color }}
+                  />
+                  <span>{variant.name}</span>
                 </button>
               )}
             </div>
